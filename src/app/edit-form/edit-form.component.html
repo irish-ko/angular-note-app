@@ -1,0 +1,22 @@
+<div class="contain-form">
+    <form id="formB">
+        <input name="name" placeholder="Name note" type="text" [(ngModel)]="editNote.name">
+
+        <textarea [(ngModel)]="editNote.content" placeholder="Conten" name="content" id="content"
+                  cols="25" rows="3"></textarea>
+        <select [(ngModel)]="editNote.category" name="category" title="Select category" id="select">
+            <option value="{{editNote.category}}" selected hidden>{{editNote.category}}</option>
+            <option disabled>Change category:</option>
+            <option
+                    *ngFor="let categ of category; let i = index"
+                    value="{{categ}}"
+            >{{categ}}</option>
+        </select>
+        <div class="btn-form">
+            <input type="button" value="Edite note"
+                   (click)="onEditeNote()"
+                   [disabled]="!(editNote.category && editNote.content && editNote.name)">
+            <input type="button" value="Cancel" (click)="cancelForm()">
+        </div>
+    </form>
+</div>

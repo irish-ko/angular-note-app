@@ -1,0 +1,17 @@
+<div class="contain-note" *ngFor="let note of notes; let i = index">
+    <div class="act"> <!--*ngIf="note.isEdit; else editeForm">-->
+        <div class="content">
+            <h1>{{ note.name }}</h1>
+            <p>{{ note.category}}</p>
+            <p>{{ note.content}}</p>
+        </div>
+        <div class="btn" >
+            <button [disabled]="!note.isEdit" (click)="onMoveEdite(i)">Edit</button>
+            <button [disabled]="!note.isEdit" (click)="onMoveArchive(i)">Archive</button>
+            <button [disabled]="!note.isEdit" (click)="onDeleteNote(i)">Delete</button>
+        </div>
+    </div>
+    <div *ngIf="!note.isEdit">
+        <app-edit-form (onCancelBtn)="onMoveEdite(i)" [editNote]="note"></app-edit-form>
+    </div>
+</div>

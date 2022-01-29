@@ -1,0 +1,11 @@
+<div class="arch" *ngFor="let note of notes; let i = index">
+    <div class="content">
+        <h1>{{ note.name }}</h1>
+        <p>{{ note.category}}</p>
+        <p>{{ note.content}}</p>
+    </div>
+    <div class="btn">
+        <button (click)="onMoveActive(i)">UnArchive</button>
+        <button (click)="onDeleteNote(i)">Delete</button>
+    </div>
+</div>

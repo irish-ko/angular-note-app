@@ -1,0 +1,31 @@
+<!--<button (click)="changeForm()">Create new Note</button>-->
+
+<div *ngIf="showForm; else formShow" >
+    <button class="btn main-btn" (click)="changeForm()">Create new Note</button>
+</div>
+<ng-template #formShow >
+    <div>
+        <h1>Create new Note</h1>
+        <div class="bord">
+            <form id="formA">
+                <input name="name" placeholder="Name note" type="text" [(ngModel)]="newNote.name">
+                <!--<input name="content" placeholder="Content" type="text">-->
+                <textarea [(ngModel)]="newNote.content" placeholder="Conten" name="content" id="content"
+                          cols="25" rows="3"></textarea>
+                <select [(ngModel)]="newNote.category" name="category" title="Select category" id="select">
+                    <option value="" selected disabled>Select category</option>
+                    <option
+                            *ngFor="let categ of category; let i = index"
+                            value="{{categ}}"
+                    >{{categ}}</option>
+                </select>
+                <div class="btn-form">
+                    <input type="button" value="Save note"
+                           (click)="onSaveNote()"
+                           [disabled]="!(newNote.category && newNote.content && newNote.name)">
+                    <input type="button" value="Cancel" (click)="changeForm()">
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

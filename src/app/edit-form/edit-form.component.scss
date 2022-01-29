@@ -1,0 +1,38 @@
+.contain-form{
+  width: 100%;
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+}
+
+#formB{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: center;
+  
+  input, select {
+    width: 75%;
+    //margin: 0.5rem auto;
+    height: 2.5rem;
+    text-align: center;
+    align-self: center;
+  }
+
+  textarea, input{
+    width: 75%;
+    margin: 0.5rem auto;
+    padding: 0.2rem;
+  }
+
+  .btn-form{
+    display: flex;
+    justify-content: space-between;
+
+    input{
+      width: 40%;
+      height: 2.5rem;
+    }
+  }
+}

@@ -22,7 +22,6 @@ export class FormCreateNoteComponent implements OnInit {
 
   onSaveNote(){
       this.newNote.id = this.notation.getNewId;
-      this.newNote.category = this.category[+this.newNote.category];
       this.notation.activeNote = [this.newNote];
       this.changeForm();
   }
